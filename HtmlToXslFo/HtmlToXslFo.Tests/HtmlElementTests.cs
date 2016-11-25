@@ -315,6 +315,7 @@ namespace HtmlToXmlFo.Tests
         public void Can_convert_ul_li_element()
         {
             const string expected = @"
+<fo:list-block provisional-distance-between-starts=""1cm"" provisional-label-separation=""0.5cm"" space-after=""12pt"" start-indent=""1cm"">
 <fo:list-item>
 <fo:list-item-label end-indent=""label-end()"">
 <fo:block>&#x02022;</fo:block>
@@ -323,8 +324,9 @@ namespace HtmlToXmlFo.Tests
 <fo:block>The Game</fo:block>
 </fo:list-item-body>
 </fo:list-item>
+</fo:list-block>
 ";
-            var fo = HtmlToXslFo.Convert("<li>The Game</li>");
+            var fo = HtmlToXslFo.Convert("<ul><li>The Game</li></ul>");
             Assert.AreEqual(expected.Replace("\r\n", ""), fo);
         }
 
@@ -332,16 +334,18 @@ namespace HtmlToXmlFo.Tests
         public void Can_convert_ol_li_element()
         {
             const string expected = @"
+<fo:list-block provisional-distance-between-starts=""1cm"" provisional-label-separation=""0.5cm"" space-after=""12pt"" start-indent=""1cm"">
 <fo:list-item>
 <fo:list-item-label end-indent=""label-end()"">
-<fo:block>&#x02022;</fo:block>
+<fo:block>a. </fo:block>
 </fo:list-item-label>
 <fo:list-item-body start-indent=""body-start()"">
 <fo:block>The Game</fo:block>
 </fo:list-item-body>
 </fo:list-item>
+</fo:list-block>
 ";
-            var fo = HtmlToXslFo.Convert("<ol><li>The Game</li></ol>");
+            var fo = HtmlToXslFo.Convert("<ol type=a><li>The Game</li></ol>");
             Assert.AreEqual(expected.Replace("\r\n", ""), fo);
         }
     }
