@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+  <fo:layout-master-set>
+    <fo:simple-page-master margin-right="20mm" margin-left="20mm"
+    margin-bottom="10mm" margin-top="10mm" page-width="300mm"
+    page-height="400mm" master-name="page">
+
+      <fo:region-body region-name="region-body" margin-right="0mm" margin-left="0mm"
+      margin-bottom="10mm" margin-top="0mm"/>
+
+      <fo:region-after region-name="region-after" extent="10mm"/>
+
+    </fo:simple-page-master>
+  </fo:layout-master-set>
+
+  <fo:page-sequence master-reference="page">
+    <fo:flow flow-name="region-body">
+
+      <fo:block space-after="12pt" font-weight="bold"
+      font-size="36pt" text-align="center">
+        Using Footnotes
+      </fo:block>
+
+      <fo:block font-size="24pt">
+        This
+        <fo:footnote>
+          <fo:inline>
+            footnote
+            <fo:inline font-size="16pt"
+            vertical-align="super">
+              1
+            </fo:inline>
+          </fo:inline>
+          <fo:footnote-body>
+            <fo:block>
+              1. Here's the first footnote's text.
+            </fo:block>
+          </fo:footnote-body>
+        </fo:footnote>
+        refers to text at the bottom of this page.
+      </fo:block>
+
+      <fo:block font-size="24pt">
+        This second
+        <fo:footnote>
+          <fo:inline>
+            footnote
+            <fo:inline font-size="16pt"
+            vertical-align="super">
+              2
+            </fo:inline>
+          </fo:inline>
+          <fo:footnote-body>
+            <fo:block>
+              2. And here's the second footnote's text.
+            </fo:block>
+          </fo:footnote-body>
+        </fo:footnote>
+        also refers to text at the bottom of this page.
+      </fo:block>
+
+      <fo:list-block>
+        <fo:list-item>
+          <fo:list-item-label>
+            <fo:block>&#9899;</fo:block>
+          </fo:list-item-label>
+          <fo:list-item-body>
+            <fo:block>Volvo</fo:block>
+          </fo:list-item-body>
+        </fo:list-item>
+        <fo:list-item>
+          <fo:list-item-label>
+            <fo:block>*</fo:block>
+          </fo:list-item-label>
+          <fo:list-item-body>
+            <fo:block>Saab</fo:block>
+          </fo:list-item-body>
+        </fo:list-item>
+      </fo:list-block>
+      
+
+    </fo:flow>
+  </fo:page-sequence>
+</fo:root>
